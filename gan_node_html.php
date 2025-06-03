@@ -1453,7 +1453,7 @@ class DomNode implements IQuery {
 	 * @return bool
 	 */
 	function hasClass($className) {
-		return ($className && preg_match('`\b'.preg_quote($className).'\b`si', $this->class));
+		return ($className && preg_match('`\b'.preg_quote($className).'\b`si', $this->class ?? ''));
 	}
 
 	/**
@@ -1464,7 +1464,7 @@ class DomNode implements IQuery {
 		if (!is_array($className)) {
 			$className = array($className);
 		}
-		$class = $this->class;
+		$class = $this->class ?? '';
 		foreach ($className as $c) {
 			if (!(preg_match('`\b'.preg_quote($c).'\b`si', $class) > 0)) {
 				$class .= ' '.$c;
@@ -1481,7 +1481,7 @@ class DomNode implements IQuery {
 		if (!is_array($className)) {
 			$className = array($className);
 		}
-		$class = $this->class;
+		$class = $this->class ?? '';
 		foreach ($className as $c) {
 			$class = preg_replace('`\b'.preg_quote($c).'\b`si', '', $class);
 		}
@@ -2257,7 +2257,7 @@ class DomNode implements IQuery {
         $attr = $this->getAttribute('checked');
         if (is_array($attr))
             $attr = reset($attr);
-        return strcasecmp($attr, 'checked') === 0;
+        return strcasecmp($attr ?? '', 'checked') === 0;
     }
 
 	/**
@@ -2280,7 +2280,7 @@ class DomNode implements IQuery {
         if (is_array($attr))
             $attr = reset($attr);
 
-        return strcasecmp($attr, 'selected') === 0;
+        return strcasecmp($attr ?? '', 'selected') === 0;
     }
 
     public function after($content) {

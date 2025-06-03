@@ -16,7 +16,7 @@ namespace pQuery;
  * @param string $indent_string
  * @return string
  */
-function indent_text($text, $indent, $indent_string = '  ') {
+function indent_text($text, $indent, $indent_string = '  '): string {
 	if ($indent && $indent_string) {
 		return str_replace("\n", "\n".str_repeat($indent_string, $indent), $text);
 	} else {

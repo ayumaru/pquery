@@ -3,9 +3,7 @@
 class DomInsertionTest extends pQueryTestCase {
     /// Tests ///
 
-    /**
-     * @dataProvider provideBasic
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideBasic')]
     function testBasic($func, $html, $query, $arg, $expected) {
         $dom = pQuery::parseStr($html);
         $dom->query($query)->$func($arg);
@@ -14,9 +12,7 @@ class DomInsertionTest extends pQueryTestCase {
         $this->assertHtmlStringEqualsHtmlString($expected, $actual_html);
     }
 
-    /**
-     * @dataProvider provideRemove
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideRemove')]
     public function testRemove($dom_remove = false) {
         $html = '<div class="container">
             <div class="hello">Hello</div>
@@ -66,9 +62,7 @@ class DomInsertionTest extends pQueryTestCase {
         $this->assertHtmlStringEqualsHtmlString($expected, $actual);
     }
 
-    /**
-     * @dataProvider provideWrap
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideWrap')]
     public function testWrap($wrap, $expected) {
         $html = '<div class="container">
             <div class="inner">Hello</div>
@@ -104,7 +98,7 @@ class DomInsertionTest extends pQueryTestCase {
 
     /// Data Providers ///
 
-    public function provideBasic() {
+    public static function provideBasic() {
         $html =
             '<h2>Greetings</h2>
             <div class="container">
@@ -163,14 +157,14 @@ class DomInsertionTest extends pQueryTestCase {
         return $result;
     }
 
-    public function provideRemove() {
+    public static function provideRemove() {
         return array(
             'selector' => array(false),
             'dom' => array(true)
             );
     }
 
-    public function provideWrap() {
+    public static function provideWrap() {
         $tests = array(
             'string node' => array('<div class="new"></div>', '<div class="container">
                 <div class="new">

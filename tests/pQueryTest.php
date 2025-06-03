@@ -65,10 +65,8 @@ EOT;
         $this->assertHtmlStringEqualsHtmlString($expected, $actual);
     }
 
-    /**
-     * @expectedException \BadMethodCallException
-     */
     public function testArrayAccessBad() {
+        $this->expectException(\BadMethodCallException::class);
         $dom = $this->getDom();
 
         $q = $dom->query('p');
