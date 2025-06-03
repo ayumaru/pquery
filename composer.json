@@ -1,7 +1,7 @@
 {
-   "name": "tburry/pquery",
+   "name": "ayumaru/pquery",
    "type": "library",
-   "description": "A jQuery like html dom parser written in php.",
+   "description": "A jQuery like html dom parser written in php. This fork add fixes for php >= 8.0",
    "keywords": ["php", "dom", "ganon"],
    "license": "LGPL-2.1",
    "authors": [
@@ -9,6 +9,7 @@
    ],
    "autoload": {
       "classmap": [
+          "tests/pQueryTestCase.php",
           "IQuery.php", 
           "gan_formatter.php", 
           "gan_node_html.php",
@@ -20,9 +21,11 @@
       ]
    },
    "require": {
-       "php": ">=5.3.0"
+       "php": ">=8.0.0"
    },
    "require-dev": {
-       "htmlawed/htmlawed": "dev-master"
+       "htmlawed/htmlawed": "dev-master",
+       "phpunit/phpunit": "^10.0"
+
    }
 }

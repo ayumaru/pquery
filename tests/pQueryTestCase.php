@@ -1,6 +1,7 @@
 <?php
 
-abstract class pQueryTestCase extends PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+abstract class pQueryTestCase extends TestCase {
     /// Helpers ///
 
     protected function assertHtmlStringEqualsHtmlString($expected, $actual) {

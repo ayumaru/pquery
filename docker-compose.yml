@@ -1,0 +1,11 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pquery-test
+    volumes:
+      - .:/var/www/html/pquery
+      - ./vendor:/var/www/html/pquery/vendor
+    working_dir: /var/www/html/pquery
+    command: sh -c "composer install && ./vendor/bin/phpunit"
