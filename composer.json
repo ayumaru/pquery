@@ -9,7 +9,6 @@
    ],
    "autoload": {
       "classmap": [
-          "tests/pQueryTestCase.php",
           "IQuery.php", 
           "gan_formatter.php", 
           "gan_node_html.php",
